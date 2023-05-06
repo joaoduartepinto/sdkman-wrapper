@@ -1,0 +1,25 @@
+{
+  "name": "sdkman-wrapper",
+  "version": "0.0.1",
+  "description": "A wrapper for the SDKman CLI",
+  "main": "dist/sdkman.js",
+  "keywords": [
+    "SDKman",
+    "wrapper",
+    "TypeScript",
+    "npm"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "João Duarte Pinto",
+  "license": "MIT",
+  "dependencies": {
+    "shelljs": "0.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.0.0",
+    "typescript": "5.0.4"
+  }
+}

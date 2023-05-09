@@ -1,0 +1,49 @@
+================================================================================
+Available Candidates
+================================================================================
+q-quit                                  /-search down
+j-down                                  ?-search up
+k-up                                    h-help
+
+--------------------------------------------------------------------------------
+Apache ActiveMQ (Classic) (5.17.1)                  https://activemq.apache.org/
+
+Apache ActiveMQ® is a popular open source, multi-protocol, Java-based message
+broker. It supports industry standard protocols so users get the benefits of
+client choices across a broad range of languages and platforms. Connect from
+clients written in JavaScript, C, C++, Python, .Net, and more. Integrate your
+multi-platform applications using the ubiquitous AMQP protocol. Exchange
+messages between your web applications using STOMP over websockets. Manage your
+IoT devices using MQTT. Support your existing JMS infrastructure and beyond.
+ActiveMQ offers the power and flexibility to support any messaging use-case.
+
+                                                          $ sdk install activemq
+--------------------------------------------------------------------------------
+Ant (1.10.13)                                            https://ant.apache.org/
+
+Apache Ant is a Java library and command-line tool whose mission is to drive
+processes described in build files as targets and extension points dependent
+upon each other. The main known usage of Ant is the build of Java applications.
+Ant supplies a number of built-in tasks allowing to compile, assemble, test and
+run Java applications. Ant can also be used effectively to build non Java
+applications, for instance C or C++ applications. More generally, Ant can be
+used to pilot any type of process which can be described in terms of targets and
+tasks.
+
+                                                               $ sdk install ant
+--------------------------------------------------------------------------------
+AsciidoctorJ (2.5.8)                                     http://asciidoctor.org/
+
+AsciidoctorJ is the official library for running Asciidoctor on the JVM. Using
+AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a
+parsed AsciiDoc document from Java and other JVM languages.
+
+                                                      $ sdk install asciidoctorj
+--------------------------------------------------------------------------------
+Ballerina (swan-lake-p3)                                   https://ballerina.io/
+
+Open source programming language and platform for cloud-era application
+programmers to easily write software that just works.
+
+                                                         $ sdk install ballerina
+--------------------------------------------------------------------------------

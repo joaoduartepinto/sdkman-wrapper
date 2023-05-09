@@ -1,4 +1,4 @@
-interface SDKmanInterface {
+export interface SDKmanInterface {
     install(sdk: string, setDefault: boolean): Promise<boolean>;
     install(sdk: string, version: string, setDefault: boolean): Promise<boolean>;
     uninstall(sdk: string, version: string): Promise<boolean>;
@@ -15,26 +15,29 @@ interface SDKmanInterface {
     selfUpdate(): Promise<boolean>;
     update(): Promise<Sdk>;
     home(sdk: string, version: string): Promise<SdkVersion>;
-    installationDirectory(): Promise<string>;
 }
 
-interface Sdk {
+export interface Sdk {
     name: string;
-    versions: Array<SdkVersion>;
+    versions?: Array<SdkVersion>;
 }
 
-interface SdkVersion {
+export interface SdkVersion {
     installed: boolean;
     currentlyInUse: boolean;
     home: string;
 }
 
-interface ShellExecutor {
+export interface ShellExecutor {
     execute(command: string): Promise<string>;
 }
 
-interface Logger {
+export interface Logger {
     info(message: string): void;
     warn(message: string): void;
     error(message: string): void;
+}
+
+export interface SDKmanApiClient {
+    listCandidates(): Promise<Array<Sdk>>;
 }

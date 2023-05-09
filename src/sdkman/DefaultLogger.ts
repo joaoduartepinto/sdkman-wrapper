@@ -1,3 +1,5 @@
+import {Logger} from "../models/models";
+
 class DefaultLogger implements Logger {
     private static instance: Logger;
 
@@ -25,4 +27,4 @@ class DefaultLogger implements Logger {
     }
 }
 
-export default DefaultLogger;
+export = DefaultLogger;

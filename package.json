@@ -2,7 +2,7 @@
   "name": "sdkman-wrapper",
   "version": "0.0.1",
   "description": "A wrapper for the SDKman CLI",
-  "main": "dist/sdkman.js",
+  "main": "dist/index.ts",
   "keywords": [
     "SDKman",
     "wrapper",
@@ -10,16 +10,22 @@
     "npm"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "tsc"
   },
   "author": "João Duarte Pinto",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.4.0",
     "shelljs": "0.8.4"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^29.5.1",
     "@types/node": "20.0.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
     "typescript": "5.0.4"
   }
 }

@@ -1,30 +1,45 @@
-import DefaultLogger from "./utils/DefaultLogger";
+
+import {SDKmanInterface, ShellExecutor, Logger, Sdk, SdkVersion, SDKmanApiClient} from '../models/models'
+import {Mode} from "../models/enums";
+import DefaultShellExecutor from "./DefaultShellExecutor";
+import DefaultSDKmanApiClient from "./DefaultSDKmanApiClient";
+import DefaultLogger from "./DefaultLogger";
 
 class SDKman implements SDKmanInterface {
     private static instance: SDKman;
+
     private shellExecutor!: ShellExecutor;
+    private apiClient!: SDKmanApiClient;
     private logger: Logger = DefaultLogger.getInstance();
 
-    private currentInstallationDirectory: string = "$HOME/.sdkman";
-    private online: boolean = true;
+    private installationDirectory!: string;
+    private currentVersion!: string;
+    private candidatesApi!: string;
+    private candidatesDirectory!: string
+    private platform!: string ;
+    // TODO: Fix "?"
+    private online?: Mode;
 
-    private constructor(installationDirectory?: string, shellExecutor?: ShellExecutor) {
+    private constructor(shellExecutor?: ShellExecutor, apiClient?: SDKmanApiClient) {
         if (SDKman.instance) {
             return SDKman.instance;
         }
 
-        this.shellExecutor = shellExecutor || new DefaultShellExecutor();
+        this.installationDirectory = process.env.SDKMAN_DIR || "";
+        this.currentVersion = process.env.SDKMAN_VERSION || "";
+        this.candidatesApi = process.env.SDKMAN_CANDIDATES_API || "";
+        this.candidatesDirectory = process.env.SDKMAN_CANDIDATES_DIR || "";
+        this.platform = process.env.SDKMAN_PLATFORM || "";
 
-        if (installationDirectory) {
-            this.currentInstallationDirectory = installationDirectory;
-        }
+        this.shellExecutor = shellExecutor || new DefaultShellExecutor();
+        this.apiClient = apiClient || new DefaultSDKmanApiClient(this.candidatesApi);
 
         SDKman.instance = this;
     }
 
-    public static getInstance(installationDirectory?: string, shellExecutor?: ShellExecutor): SDKman {
+    public static getInstance(shellExecutor?: ShellExecutor, apiClient?: SDKmanApiClient): SDKman {
         if (!SDKman.instance) {
-            SDKman.instance = new SDKman(installationDirectory, shellExecutor);
+            SDKman.instance = new SDKman(shellExecutor, apiClient);
         }
         return SDKman.instance;
     }
@@ -32,6 +47,8 @@ class SDKman implements SDKmanInterface {
     public changeMode(): Promise<boolean>;
     public changeMode(mode: string): Promise<boolean>;
     public changeMode(mode?: string): Promise<boolean> {
+
+
         return Promise.resolve(false);
     }
 
@@ -83,10 +100,6 @@ class SDKman implements SDKmanInterface {
     }
 
     public version(): Promise<string> {
-        return Promise.resolve("");
-    }
-
-    public installationDirectory(): Promise<string> {
         return Promise.resolve("");
     }
 
